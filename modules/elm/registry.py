@@ -9,12 +9,38 @@ MODULE = {
 }
 
 NAV_ITEMS = [
-    {"code": "elm.requests", "label": "My Leave Requests", "icon": "Calendar",
-     "to": "/leave/requests", "required_permission": "leave_elm.request.view_self", "sort_order": 10},
-    {"code": "elm.balances", "label": "My Leave Balance", "icon": "Wallet",
-     "to": "/leave/balances", "required_permission": "leave_elm.balance.view_self", "sort_order": 20},
-    {"code": "elm.queue", "label": "Leave Approval Queue", "icon": "ClipboardList",
-     "to": "/leave/queue", "required_permission": "leave_elm.request.review", "sort_order": 30},
+    {
+        "code": "elm.requests",
+        "label": "My Leave Requests",
+        "icon": "Calendar",
+        "to": "/leave/requests",
+        "required_permission": "leave_elm.request.view_self",
+        "sort_order": 10,
+    },
+    {
+        "code": "elm.balances",
+        "label": "My Leave Balance",
+        "icon": "Wallet",
+        "to": "/leave/balances",
+        "required_permission": "leave_elm.balance.view_self",
+        "sort_order": 20,
+    },
+    {
+        "code": "elm.substitute",
+        "label": "Substitute Requests",
+        "icon": "UserCheck",
+        "to": "/leave/substitute",
+        "required_permission": "leave_elm.request.view_self",
+        "sort_order": 25,
+    },
+    {
+        "code": "elm.queue",
+        "label": "Leave Approval Queue",
+        "icon": "ClipboardList",
+        "to": "/leave/queue",
+        "required_permission": "leave_elm.request.review",
+        "sort_order": 30,
+    },
 ]
 
 PERMISSIONS = [
@@ -36,5 +62,8 @@ ROLE_GRANTS = {
     "Faculty": _EMPLOYEE,
     "Staff": _EMPLOYEE,
     "Unit Head": _REVIEWER,
+    "Dean": _REVIEWER,
+    "Registrar": _REVIEWER,
+    "Director": _REVIEWER,
     "Leave Administrator": [p[0] for p in PERMISSIONS],
 }
