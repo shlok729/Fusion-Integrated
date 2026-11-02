@@ -1,9 +1,14 @@
 import { lazy } from "react";
-import { Navigate, type RouteObject } from "react-router-dom";
+import { type RouteObject } from "react-router-dom";
 
-const CMSPage = lazy(() => import("./pages/CMSPage"));
+const CmsWorkspace = lazy(() => import("./pages/CmsWorkspace"));
 
 export const routes: RouteObject[] = [
-  { index: true, element: <Navigate to="complaints" replace /> },
-  { path: "complaints", element: <CMSPage /> },
+  { index: true, element: <CmsWorkspace defaultTab="my_complaints" /> },
+  { path: "complaints", element: <CmsWorkspace defaultTab="my_complaints" /> },
+  { path: "queue", element: <CmsWorkspace defaultTab="handler" /> },
+  { path: "escalations", element: <CmsWorkspace defaultTab="escalations" /> },
+  { path: "announcements", element: <CmsWorkspace defaultTab="announcements" /> },
+  { path: "reports", element: <CmsWorkspace defaultTab="reports" /> },
+  { path: "roles", element: <CmsWorkspace defaultTab="roles" /> },
 ];
